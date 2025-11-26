@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Onboarding Form</title>
+  <style>
+    :root {
+  /* Primitive Color Tokens */
+  --color-white: rgba(255, 255, 255, 1);
+  --color-black: rgba(0, 0, 0, 1);
+  --color-cream-50: rgba(252, 252, 249, 1);
+  --color-cream-100: rgba(255, 255, 253, 1);
+  --color-gray-200: rgba(245, 245, 245, 1);
+  --color-gray-300: rgba(167, 169, 169, 1);
+  --color-gray-400: rgba(119, 124, 124, 1);
+  --color-slate-500: rgba(98, 108, 113, 1);
+  --color-brown-600: rgba(94, 82, 64, 1);
+  --color-charcoal-700: rgba(31, 33, 33, 1);
+  --color-charcoal-800: rgba(38, 40, 40, 1);
+  --color-slate-900: rgba(19, 52, 59, 1);
+  --color-teal-300: rgba(50, 184, 198, 1);
+  --color-teal-400: rgba(45, 166, 178, 1);
+  --color-teal-500: rgba(33, 128, 141, 1);
+  --color-teal-600: rgba(29, 116, 128, 1);
+  --color-teal-700: rgba(26, 104, 115, 1);
+  --color-teal-800: rgba(41, 150, 161, 1);
+  --color-red-400: rgba(255, 84, 89, 1);
+  --color-red-500: rgba(192, 21, 47, 1);
+  --color-orange-400: rgba(230, 129, 97, 1);
+  --color-orange-500: rgba(168, 75, 47, 1);
+
+  /* Logan Property Brand Colors */
+  --color-logan-navy: #1a3a4a;
+  --color-logan-gold: #e8a040;
+  --color-logan-navy-light: #2d5566;
+  --color-logan-gold-light: #f4b860;
+  --color-logan-navy-rgb: 26, 58, 74;
+  --color-logan-gold-rgb: 232, 160, 64;
+
+  --color-brown-600-rgb: 94, 82, 64;
+  --color-teal-500-rgb: 33, 128, 141;
+  --color-slate-900-rgb: 19, 52, 59;
+  --color-slate-500-rgb: 98, 108, 113;
+  --color-red-500-rgb: 192, 21, 47;
+  --color-red-400-rgb: 255, 84, 89;
+  --color-orange-500-rgb: 168, 75, 47;
+  --color-orange-400-rgb: 230, 129, 97;
+
+  --color-bg-1: rgba(59, 130, 246, 0.08);
+  --color-bg-2: rgba(245, 158, 11, 0.08);
+  --color-bg-3: rgba(34, 197, 94, 0.08);
+  --color-bg-4: rgba(239, 68, 68, 0.08);
+  --color-bg-5: rgba(147, 51, 234, 0.08);
+  --color-bg-6: rgba(249, 115, 22, 0.08);
+  --color-bg-7: rgba(236, 72, 153, 0.08);
+  --color-bg-8: rgba(6, 182, 212, 0.08);
+
+  --color-background: var(--color-cream-50);
+  --color-surface: var(--color-cream-100);
+  --color-text: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-500);
+  --color-primary: var(--color-logan-navy);
+  --color-primary-hover: var(--color-logan-navy-light);
+  --color-primary-active: var(--color-logan-navy);
+  --color-accent: var(--color-logan-gold);
+  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-btn-primary-text: var(--color-white);
+  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-error: var(--color-red-500);
+  --color-success: var(--color-teal-500);
+  --color-warning: var(--color-orange-500);
+  --color-info: var(--color-slate-500);
+  --color-focus-ring: rgba(var(--color-logan-navy-rgb), 0.4);
+  --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+
+  --focus-ring: 0 0 0 3px var(--color-focus-ring);
+  --focus-outline: 2px solid var(--color-primary);
+  --status-bg-opacity: 0.15;
+  --status-border-opacity: 0.25;
+  --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+
+  --color-success-rgb: 33, 128, 141;
+  --color-error-rgb: 192, 21, 47;
+  --color-warning-rgb: 168, 75, 47;
+  --color-info-rgb: 98, 108, 113;
+
+  --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 30px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 550;
+  --font-weight-bold: 600;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --letter-spacing-tight: -0.01em;
+
+  --space-0: 0;
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+
+  --radius-sm: 6px;
+  --radius-base: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-gray-400-rgb: 119, 124, 124;
+    --color-teal-300-rgb: 50, 184, 198;
+    --color-gray-300-rgb: 167, 169, 169;
+    --color-gray-200-rgb: 245, 245, 245;
+
+    --color-bg-1: rgba(29, 78, 216, 0.15);
+    --color-bg-2: rgba(180, 83, 9, 0.15);
+    --color-bg-3: rgba(21, 128, 61, 0.15);
+    --color-bg-4: rgba(185, 28, 28, 0.15);
+    --color-bg-5: rgba(107, 33, 168, 0.15);
+    --color-bg-6: rgba(194, 65, 12, 0.15);
+    --color-bg-7: rgba(190, 24, 93, 0.15);
+    --color-bg-8: rgba(8, 145, 178, 0.15);
+
+    --color-background: var(--color-charcoal-700);
+    --color-surface: var(--color-charcoal-800);
+    --color-text: var(--color-gray-200);
+    --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+    --color-primary: var(--color-teal-300);
+    --color-primary-hover: var(--color-teal-400);
+    --color-primary-active: var(--color-teal-800);
+    --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+    --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+    --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-error: var(--color-red-400);
+    --color-success: var(--color-teal-300);
+    --color-warning: var(--color-orange-400);
+    --color-info: var(--color-gray-300);
+    --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+    --color-btn-primary-text: var(--color-slate-900);
+    --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+    --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+    --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    --button-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
+    --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
+    --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
+
+    --color-success-rgb: var(--color-teal-300-rgb);
+    --color-error-rgb: var(--color-red-400-rgb);
+    --color-warning-rgb: var(--color-orange-400-rgb);
+    --color-info-rgb: var(--color-gray-300-rgb);
+  }
+}
+
+@font-face {
+  font-family: 'FKGroteskNeue';
+  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2') format('woff2');
+}
+
+html {
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h1 { font-size: var(--font-size-4xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+h5 { font-size: var(--font-size-lg); }
+h6 { font-size: var(--font-size-md); }
+
+p {
+  margin: 0 0 var(--space-16) 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-standard);
+  border: none;
+  text-decoration: none;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+}
+
+.btn--primary:hover {
+  background: var(--color-primary-hover);
+}
+
+.btn--primary:active {
+  background: var(--color-primary-active);
+}
+
+.btn--secondary {
+  background: var(--color-secondary);
+  color: var(--color-text);
+}
+
+.btn--secondary:hover {
+  background: var(--color-secondary-hover);
+}
+
+.btn--secondary:active {
+  background: var(--color-secondary-active);
+}
+
+.btn--full-width {
+  width: 100%;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: var(--space-8) var(--space-12);
+  font-size: var(--font-size-md);
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  transition: border-color var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+textarea.form-control {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  resize: vertical;
+  min-height: 100px;
+}
+
+select.form-control {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: var(--select-caret-light);
+  background-repeat: no-repeat;
+  background-position: right var(--space-12) center;
+  background-size: 16px;
+  padding-right: var(--space-32);
+}
+
+@media (prefers-color-scheme: dark) {
+  select.form-control {
+    background-image: var(--select-caret-dark);
+  }
+}
+
+.form-control:focus {
+  border-color: var(--color-primary);
+  outline: var(--focus-outline);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--space-8);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+}
+
+.form-group {
+  margin-bottom: var(--space-16);
+}
+
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  margin-bottom: var(--space-24);
+}
+
+.card__body {
+  padding: var(--space-24);
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-24);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-32);
+}
+
+.section-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-16);
+  color: var(--color-logan-navy);
+}
+
+.progress-bar {
+  background: var(--color-secondary);
+  border-radius: var(--radius-full);
+  height: 8px;
+  overflow: hidden;
+  margin-bottom: var(--space-24);
+}
+
+.progress-bar__fill {
+  background: var(--color-logan-gold);
+  height: 100%;
+  transition: width var(--duration-normal) var(--ease-standard);
+}
+
+.progress-text {
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-16);
+}
+
+.checkbox-group, .radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.checkbox-item, .radio-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.checkbox-item input, .radio-item input {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.checkbox-item label, .radio-item label {
+  cursor: pointer;
+  font-size: var(--font-size-base);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+}
+
+@media (max-width: 640px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.info-box {
+  background: var(--color-bg-3);
+  border: 1px solid var(--color-success);
+  border-radius: var(--radius-base);
+  padding: var(--space-16);
+  margin: var(--space-16) 0;
+  font-size: var(--font-size-sm);
+}
+
+.repeating-section {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  padding: var(--space-16);
+  margin-bottom: var(--space-16);
+  background: var(--color-bg-1);
+}
+
+.repeating-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-16);
+}
+
+.btn-remove {
+  background: var(--color-error);
+  color: white;
+  border: none;
+  padding: var(--space-4) var(--space-12);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+}
+
+.btn-add {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+.draft-buttons {
+  display: flex;
+  gap: var(--space-12);
+  margin-bottom: var(--space-24);
+  justify-content: center;
+}
+
+.conditional-field {
+  display: none;
+}
+
+.conditional-field.visible {
+  display: block;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.6s linear infinite;
+  margin-right: var(--space-8);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.hidden {
+  display: none;
+}
+
+/* Header Section */
+.form-header {
+  background: var(--color-surface);
+  border-bottom: 3px solid var(--color-logan-gold);
+  padding: var(--space-32) var(--space-24);
+  margin-bottom: var(--space-32);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-24);
+  max-width: var(--container-lg);
+  margin: 0 auto;
+}
+
+.company-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.header-text {
+  flex: 1;
+}
+
+.company-name {
+  margin: 0 0 var(--space-8) 0;
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-logan-navy);
+}
+
+.form-subtitle {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+@media (max-width: 768px) {
+  .form-header {
+    padding: var(--space-24) var(--space-16);
+  }
+  
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .company-logo {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .company-name {
+    font-size: var(--font-size-2xl);
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 
+      CUSTOMIZATION INSTRUCTIONS:
+      - To add your own logo: Replace the src attribute in the img tag below with your logo URL
+      - To change company name: Edit the text in the h1 tag with id="companyName"
+      - To change subtitle: Edit the text in the p tag with class="form-subtitle"
+      - The placeholder logo shows "LP" initials. Upload your logo to any image hosting service and paste the URL.
+    -->
+    <div class="form-header">
+      <div class="header-content">
+        <svg class="company-logo" id="companyLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+          <rect width="100" height="100" rx="12" fill="#1a3a4a"/>
+          <text x="50" y="60" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#e8a040" text-anchor="middle">LP</text>
+        </svg>
+        <div class="header-text">
+          <h1 class="company-name" id="companyName">Logan Property</h1>
+          <p class="form-subtitle">Property Onboarding Form</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="header">
+      <h1>Property Onboarding Form</h1>
+      <p style="color: var(--color-text-secondary);">Complete all sections to onboard your short-term let property</p>
+    </div>
+
+    <div class="progress-text" id="progressText">Progress: 0/14 sections completed</div>
+    <div class="progress-bar">
+      <div class="progress-bar__fill" id="progressFill" style="width: 0%;"></div>
+    </div>
+
+    <div class="draft-buttons">
+      <button type="button" class="btn btn--secondary" onclick="saveDraft()">Save Draft</button>
+      <button type="button" class="btn btn--secondary" onclick="loadDraft()">Load Saved Draft</button>
+    </div>
+
+    <form id="propertyForm" action="https://usebasin.com/f/fdf37b7963b3" method="POST" enctype="multipart/form-data">
+
+      <!-- Section 1: Property Basics -->
+      <div class="card" data-section="1">
+        <div class="card__body">
+          <h3 class="section-title">1. Property Basics</h3>
+          
+          <div class="form-group">
+            <label class="form-label" for="property_name">Property Name *</label>
+            <input type="text" class="form-control" id="property_name" name="property_name" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="property_type">Property Type *</label>
+              <select class="form-control" id="property_type" name="property_type" required>
+                <option value="">Select type</option>
+                <option value="apartment">Apartment</option>
+                <option value="house">House</option>
+                <option value="cottage">Cottage</option>
+                <option value="villa">Villa</option>
+                <option value="studio">Studio</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="listing_type">Listing Type *</label>
+              <select class="form-control" id="listing_type" name="listing_type" required>
+                <option value="">Select type</option>
+                <option value="entire_place">Entire Place</option>
+                <option value="private_room">Private Room</option>
+                <option value="shared_room">Shared Room</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="address">Address *</label>
+            <input type="text" class="form-control" id="address" name="address" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="postcode">Postcode *</label>
+              <input type="text" class="form-control" id="postcode" name="postcode" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="city">City *</label>
+              <input type="text" class="form-control" id="city" name="city" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="bedrooms">Bedrooms *</label>
+              <input type="number" class="form-control" id="bedrooms" name="bedrooms" min="0" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="bathrooms">Bathrooms *</label>
+              <input type="number" class="form-control" id="bathrooms" name="bathrooms" min="0" step="0.5" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="max_guests">Maximum Guests *</label>
+            <input type="number" class="form-control" id="max_guests" name="max_guests" min="1" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="floor_plan">Floor Plan Upload</label>
+            <input type="file" class="form-control" id="floor_plan" name="floor_plan" accept="image/*,.pdf">
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Owner Information -->
+      <div class="card" data-section="2">
+        <div class="card__body">
+          <h3 class="section-title">2. Owner Information</h3>
+          
+          <div class="form-group">
+            <label class="form-label" for="owner_name">Owner Name *</label>
+            <input type="text" class="form-control" id="owner_name" name="owner_name" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="owner_email">Email *</label>
+              <input type="email" class="form-control" id="owner_email" name="owner_email" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="owner_phone">Phone *</label>
+              <input type="tel" class="form-control" id="owner_phone" name="owner_phone" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="emergency_contact_name">Emergency Contact Name</label>
+              <input type="text" class="form-control" id="emergency_contact_name" name="emergency_contact_name">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="emergency_contact_phone">Emergency Contact Phone</label>
+              <input type="tel" class="form-control" id="emergency_contact_phone" name="emergency_contact_phone">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="communication_method">Preferred Communication Method</label>
+            <select class="form-control" id="communication_method" name="communication_method">
+              <option value="email">Email</option>
+              <option value="phone">Phone</option>
+              <option value="sms">SMS</option>
+              <option value="whatsapp">WhatsApp</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Legal & Compliance -->
+      <div class="card" data-section="3">
+        <div class="card__body">
+          <h3 class="section-title">3. Legal &amp; Compliance</h3>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="stl_licence">STL Licence Number</label>
+              <input type="text" class="form-control" id="stl_licence" name="stl_licence">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="stl_expiry">STL Licence Expiry</label>
+              <input type="date" class="form-control" id="stl_expiry" name="stl_expiry">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="planning_permission">Planning Permission</label>
+            <input type="text" class="form-control" id="planning_permission" name="planning_permission">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="hmo_licence">HMO Licence</label>
+            <input type="text" class="form-control" id="hmo_licence" name="hmo_licence">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="epc_rating">EPC Rating</label>
+              <select class="form-control" id="epc_rating" name="epc_rating">
+                <option value="">Select rating</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="G">G</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="epc_expiry">EPC Expiry</label>
+              <input type="date" class="form-control" id="epc_expiry" name="epc_expiry">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="gas_safety_expiry">Gas Safety Expiry</label>
+              <input type="date" class="form-control" id="gas_safety_expiry" name="gas_safety_expiry">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="eicr_expiry">EICR Expiry</label>
+              <input type="date" class="form-control" id="eicr_expiry" name="eicr_expiry">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="pat_testing">PAT Testing Date</label>
+            <input type="date" class="form-control" id="pat_testing" name="pat_testing">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="insurance_provider">Insurance Provider</label>
+              <input type="text" class="form-control" id="insurance_provider" name="insurance_provider">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="policy_number">Policy Number</label>
+              <input type="text" class="form-control" id="policy_number" name="policy_number">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="insurance_renewal">Insurance Renewal Date</label>
+            <input type="date" class="form-control" id="insurance_renewal" name="insurance_renewal">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="certificates">Upload Certificates (Multiple files allowed)</label>
+            <input type="file" class="form-control" id="certificates" name="certificates[]" multiple accept=".pdf,.jpg,.jpeg,.png">
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Access & Keys -->
+      <div class="card" data-section="4">
+        <div class="card__body">
+          <h3 class="section-title">4. Access &amp; Keys</h3>
+          
+          <div class="form-group">
+            <label class="form-label" for="access_method">Access Method *</label>
+            <select class="form-control" id="access_method" name="access_method" required>
+              <option value="">Select method</option>
+              <option value="physical_keys">Physical Keys</option>
+              <option value="smart_lock">Smart Lock</option>
+              <option value="keybox">Key Box</option>
+              <option value="concierge">Concierge</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="num_keys">Number of Keys</label>
+              <input type="number" class="form-control" id="num_keys" name="num_keys" min="0">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="key_tracking">Key Tracking Info</label>
+              <input type="text" class="form-control" id="key_tracking" name="key_tracking" placeholder="e.g., Key numbers, tags">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="key_details">Key Details</label>
+            <textarea class="form-control" id="key_details" name="key_details" placeholder="Describe what each key opens"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="access_instructions">Access Instructions *</label>
+            <textarea class="form-control" id="access_instructions" name="access_instructions" placeholder="Detailed instructions on how to access the property" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="smart_lock_details">Smart Lock Details</label>
+            <textarea class="form-control" id="smart_lock_details" name="smart_lock_details" placeholder="Brand, model, app name, access codes"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="parking">Parking Available</label>
+            <select class="form-control" id="parking" name="parking">
+              <option value="no">No</option>
+              <option value="yes">Yes - Free</option>
+              <option value="paid">Yes - Paid</option>
+              <option value="street">Street Parking</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="parking_instructions">Parking Instructions</label>
+            <textarea class="form-control" id="parking_instructions" name="parking_instructions"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="building_entry">Building Entry Instructions</label>
+            <textarea class="form-control" id="building_entry" name="building_entry" placeholder="For apartments/flats with building access"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="access_photos">Access Photos (Multiple files allowed)</label>
+            <input type="file" class="form-control" id="access_photos" name="access_photos[]" multiple accept="image/*">
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: Amenities & Features -->
+      <div class="card" data-section="5">
+        <div class="card__body">
+          <h3 class="section-title">5. Amenities &amp; Features</h3>
+          
+          <div class="form-group">
+            <label class="form-label">Kitchen Amenities</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="amenity_fridge" name="kitchen_amenities[]" value="fridge">
+                <label for="amenity_fridge">Fridge</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="amenity_freezer" name="kitchen_amenities[]" value="freezer">
+                <label for="amenity_freezer">Freezer</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="amenity_oven" name="kitchen_amenities[]" value="oven">
+                <label for="amenity_oven">Oven</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="amenity_microwave" name="kitchen_amenities[]" value="microwave">
+                <label for="amenity_microwave">Microwave</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="amenity_dishwasher" name="kitchen_amenities[]" value="dishwasher">
+                <label for="amenity_dishwasher">Dishwasher</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="amenity_washing_machine" name="kitchen_amenities[]" value="washing_machine">
+                <label for="amenity_washing_machine">Washing Machine</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="amenity_dryer" name="kitchen_amenities[]" value="dryer">
+                <label for="amenity_dryer">Dryer</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="amenity_kettle" name="kitchen_amenities[]" value="kettle">
+                <label for="amenity_kettle">Kettle</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="amenity_coffee_maker" name="kitchen_amenities[]" value="coffee_maker">
+                <label for="amenity_coffee_maker">Coffee Maker</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="amenity_toaster" name="kitchen_amenities[]" value="toaster">
+                <label for="amenity_toaster">Toaster</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Entertainment</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="entertainment_tv" name="entertainment[]" value="tv">
+                <label for="entertainment_tv">TV</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="entertainment_streaming" name="entertainment[]" value="streaming">
+                <label for="entertainment_streaming">Streaming Services</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="entertainment_wifi" name="entertainment[]" value="wifi">
+                <label for="entertainment_wifi">WiFi</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="entertainment_games" name="entertainment[]" value="games">
+                <label for="entertainment_games">Games</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="entertainment_books" name="entertainment[]" value="books">
+                <label for="entertainment_books">Books</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Heating &amp; Cooling</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="climate_central_heating" name="heating_cooling[]" value="central_heating">
+                <label for="climate_central_heating">Central Heating</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="climate_radiators" name="heating_cooling[]" value="radiators">
+                <label for="climate_radiators">Radiators</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="climate_air_conditioning" name="heating_cooling[]" value="air_conditioning">
+                <label for="climate_air_conditioning">Air Conditioning</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="climate_fans" name="heating_cooling[]" value="fans">
+                <label for="climate_fans">Fans</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Other Amenities</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="other_iron" name="other_amenities[]" value="iron">
+                <label for="other_iron">Iron &amp; Ironing Board</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="other_hairdryer" name="other_amenities[]" value="hairdryer">
+                <label for="other_hairdryer">Hair Dryer</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="other_safe" name="other_amenities[]" value="safe">
+                <label for="other_safe">Safe</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="other_workspace" name="other_amenities[]" value="workspace">
+                <label for="other_workspace">Dedicated Workspace</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="wifi_ssid">WiFi SSID</label>
+              <input type="text" class="form-control" id="wifi_ssid" name="wifi_ssid">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="wifi_password">WiFi Password</label>
+              <input type="text" class="form-control" id="wifi_password" name="wifi_password">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 6: Utilities & Systems -->
+      <div class="card" data-section="6">
+        <div class="card__body">
+          <h3 class="section-title">6. Utilities &amp; Systems</h3>
+          
+          <div class="form-group">
+            <label class="form-label" for="heating_type">Heating System Type</label>
+            <select class="form-control" id="heating_type" name="heating_type">
+              <option value="">Select type</option>
+              <option value="gas_central">Gas Central Heating</option>
+              <option value="electric">Electric Heating</option>
+              <option value="oil">Oil Heating</option>
+              <option value="heat_pump">Heat Pump</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="heating_instructions">Heating Operation Instructions</label>
+            <textarea class="form-control" id="heating_instructions" name="heating_instructions"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="hot_water">Hot Water System</label>
+            <input type="text" class="form-control" id="hot_water" name="hot_water">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="boiler_details">Boiler Details &amp; Location</label>
+            <textarea class="form-control" id="boiler_details" name="boiler_details"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="stopcock">Stopcock Location</label>
+            <input type="text" class="form-control" id="stopcock" name="stopcock">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="fuse_box">Fuse Box Location</label>
+            <input type="text" class="form-control" id="fuse_box" name="fuse_box">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="electricity_meter">Electricity Meter Location</label>
+              <input type="text" class="form-control" id="electricity_meter" name="electricity_meter">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="gas_meter">Gas Meter Location</label>
+              <input type="text" class="form-control" id="gas_meter" name="gas_meter">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="alarm">Alarm System Details</label>
+            <textarea class="form-control" id="alarm" name="alarm"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="smoke_alarms">Smoke Alarm Locations</label>
+            <input type="text" class="form-control" id="smoke_alarms" name="smoke_alarms">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="co_alarms">CO Alarm Locations</label>
+            <input type="text" class="form-control" id="co_alarms" name="co_alarms">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="fire_equipment">Fire Equipment Locations</label>
+            <textarea class="form-control" id="fire_equipment" name="fire_equipment" placeholder="Fire extinguisher, fire blanket, etc."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="utilities_photos">Utilities Photos (Multiple files allowed)</label>
+            <input type="file" class="form-control" id="utilities_photos" name="utilities_photos[]" multiple accept="image/*">
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 7: Appliances & Equipment -->
+      <div class="card" data-section="7">
+        <div class="card__body">
+          <h3 class="section-title">7. Appliances &amp; Equipment</h3>
+          
+          <div id="appliancesContainer"></div>
+          
+          <button type="button" class="btn btn--secondary btn-add" onclick="addAppliance()">+ Add Appliance</button>
+        </div>
+      </div>
+
+      <!-- Section 8: Cleaning & Maintenance -->
+      <div class="card" data-section="8">
+        <div class="card__body">
+          <h3 class="section-title">8. Cleaning &amp; Maintenance</h3>
+          
+          <div class="form-group">
+            <label class="form-label" for="professional_cleaning">Professional Cleaning Service *</label>
+            <select class="form-control" id="professional_cleaning" name="professional_cleaning" required onchange="toggleCleaningFields()">
+              <option value="">Select option</option>
+              <option value="opt_in">Opt In - Use Professional Cleaning</option>
+              <option value="opt_out">Opt Out - Owner Provides Own Cleaning</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="cleaning_access">Cleaning Access Instructions</label>
+            <textarea class="form-control" id="cleaning_access" name="cleaning_access" placeholder="How can cleaners access the property?"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="special_cleaning">Special Cleaning Instructions</label>
+            <textarea class="form-control" id="special_cleaning" name="special_cleaning"></textarea>
+          </div>
+
+          <div class="conditional-field" id="optInFields">
+            <div class="form-group">
+              <label class="form-label" for="window_cleaning">Window Cleaning</label>
+              <select class="form-control" id="window_cleaning" name="window_cleaning">
+                <option value="no">No</option>
+                <option value="weekly">Yes - Weekly</option>
+                <option value="fortnightly">Yes - Fortnightly</option>
+                <option value="monthly">Yes - Monthly</option>
+                <option value="quarterly">Yes - Quarterly</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="carpet_upholstery">Carpet &amp; Upholstery Cleaning</label>
+              <select class="form-control" id="carpet_upholstery" name="carpet_upholstery">
+                <option value="not_required">Not Required</option>
+                <option value="once_per_year">Once Per Year</option>
+                <option value="twice_per_year">Twice Per Year</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="conditional-field" id="optOutFields">
+            <div class="form-group">
+              <label class="form-label" for="owner_cleaning_details">Owner Cleaning Arrangement Details</label>
+              <textarea class="form-control" id="owner_cleaning_details" name="owner_cleaning_details"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cleaning_contact">Cleaning Contact Information</label>
+              <input type="text" class="form-control" id="cleaning_contact" name="cleaning_contact">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="waste_collection">Waste Collection Days</label>
+            <input type="text" class="form-control" id="waste_collection" name="waste_collection" placeholder="e.g., Tuesday - General waste, Friday - Recycling">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="contractors">Preferred Contractors</label>
+            <textarea class="form-control" id="contractors" name="contractors" placeholder="Plumber, electrician, handyman contacts"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 9: Supplies & Inventory -->
+      <div class="card" data-section="9">
+        <div class="card__body">
+          <h3 class="section-title">9. Supplies &amp; Inventory</h3>
+          
+          <div class="form-group">
+            <label class="form-label" for="linen_provider">Linen Provider</label>
+            <select class="form-control" id="linen_provider" name="linen_provider" onchange="toggleLinenFields()">
+              <option value="owner">Owner Provides</option>
+              <option value="manager">Property Manager Provides</option>
+              <option value="third_party">Third Party</option>
+            </select>
+          </div>
+
+          <div class="conditional-field" id="linenBedroomsSection">
+            <div id="bedroomsContainer"></div>
+            <button type="button" class="btn btn--secondary btn-add" onclick="addBedroom()">+ Add Bedroom</button>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="kitchen_inventory">Kitchen Inventory</label>
+            <select class="form-control" id="kitchen_inventory" name="kitchen_inventory" onchange="toggleKitchenInventory()">
+              <option value="owner">Owner Provides</option>
+              <option value="none">No Kitchen Items</option>
+            </select>
+          </div>
+
+          <div class="conditional-field" id="kitchenInventoryDetails">
+            <div class="form-group">
+              <label class="form-label" for="kitchen_inventory_details">Kitchen Inventory Details</label>
+              <textarea class="form-control" id="kitchen_inventory_details" name="kitchen_inventory_details" placeholder="List all kitchen items provided"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="welcome_pack">Welcome Pack</label>
+            <select class="form-control" id="welcome_pack" name="welcome_pack" onchange="toggleWelcomePack()">
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </div>
+
+          <div class="conditional-field" id="welcomePackItems">
+            <div class="form-group">
+              <label class="form-label" for="welcome_pack_items">Welcome Pack Items</label>
+              <textarea class="form-control" id="welcome_pack_items" name="welcome_pack_items"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Consumables (Select items to include)</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="consumable_toilet_roll" name="consumables[]" value="toilet_roll">
+                <label for="consumable_toilet_roll">Toilet Roll - £0.55 + £0.11 VAT = £0.66</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="consumable_clean_pack1" name="consumables[]" value="clean_pack_1">
+                <label for="consumable_clean_pack1">Clean Pack 1 - £23.00 + £4.60 VAT = £27.60</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="consumable_clean_pack2" name="consumables[]" value="clean_pack_2">
+                <label for="consumable_clean_pack2">Clean Pack 2 - £7.00 + £1.40 VAT = £8.40</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="consumable_condiment" name="consumables[]" value="condiment_pack">
+                <label for="consumable_condiment">Condiment Pack - £7.80 + £1.56 VAT = £9.36</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="storage_locations">Storage Locations</label>
+            <textarea class="form-control" id="storage_locations" name="storage_locations" placeholder="Where items are stored in the property"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="inventory_photos">Inventory Photos (Multiple files allowed)</label>
+            <input type="file" class="form-control" id="inventory_photos" name="inventory_photos[]" multiple accept="image/*">
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 10: House Rules & Policies -->
+      <div class="card" data-section="10">
+        <div class="card__body">
+          <h3 class="section-title">10. House Rules &amp; Policies</h3>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="checkin_time">Check-in Time *</label>
+              <input type="time" class="form-control" id="checkin_time" name="checkin_time" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="checkout_time">Check-out Time *</label>
+              <input type="time" class="form-control" id="checkout_time" name="checkout_time" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="smoking">Smoking Policy</label>
+              <select class="form-control" id="smoking" name="smoking">
+                <option value="not_allowed">Not Allowed</option>
+                <option value="outside_only">Outside Only</option>
+                <option value="allowed">Allowed</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="pets">Pets Policy</label>
+              <select class="form-control" id="pets" name="pets">
+                <option value="not_allowed">Not Allowed</option>
+                <option value="allowed">Allowed</option>
+                <option value="allowed_with_fee">Allowed with Fee</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="parties">Parties/Events Policy</label>
+              <select class="form-control" id="parties" name="parties">
+                <option value="not_allowed">Not Allowed</option>
+                <option value="allowed">Allowed</option>
+                <option value="with_approval">With Prior Approval</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="children">Children Allowed</label>
+              <select class="form-control" id="children" name="children">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="quiet_hours">Quiet Hours</label>
+            <input type="text" class="form-control" id="quiet_hours" name="quiet_hours" placeholder="e.g., 10 PM - 8 AM">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="additional_rules">Additional House Rules</label>
+            <textarea class="form-control" id="additional_rules" name="additional_rules"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="neighbour_considerations">Neighbour Considerations</label>
+            <textarea class="form-control" id="neighbour_considerations" name="neighbour_considerations" placeholder="Any special considerations regarding neighbours"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 11: Pricing & Financial -->
+      <div class="card" data-section="11">
+        <div class="card__body">
+          <h3 class="section-title">11. Pricing &amp; Financial</h3>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="base_rate">Base Nightly Rate (£) *</label>
+              <input type="number" class="form-control" id="base_rate" name="base_rate" step="0.01" min="0" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="weekend_rate">Weekend Rate (£)</label>
+              <input type="number" class="form-control" id="weekend_rate" name="weekend_rate" step="0.01" min="0">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="min_stay">Minimum Stay (nights)</label>
+              <input type="number" class="form-control" id="min_stay" name="min_stay" min="1" value="1">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="security_deposit">Security Deposit (£)</label>
+              <input type="number" class="form-control" id="security_deposit" name="security_deposit" step="0.01" min="0">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="commission">Management Commission (%)</label>
+            <input type="number" class="form-control" id="commission" name="commission" step="0.1" min="0" max="100">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="bank_details">Bank Details for Payouts</label>
+            <textarea class="form-control" id="bank_details" name="bank_details" placeholder="Account name, sort code, account number"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="payout_schedule">Payout Schedule</label>
+            <select class="form-control" id="payout_schedule" name="payout_schedule">
+              <option value="weekly">Weekly</option>
+              <option value="bi_weekly">Bi-weekly</option>
+              <option value="monthly">Monthly</option>
+              <option value="after_checkout">After Each Checkout</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 12: Listing Information -->
+      <div class="card" data-section="12">
+        <div class="card__body">
+          <h3 class="section-title">12. Listing Information</h3>
+          
+          <div class="form-group">
+            <label class="form-label" for="property_title">Property Title *</label>
+            <input type="text" class="form-control" id="property_title" name="property_title" placeholder="Catchy title for listings" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="description">Property Description *</label>
+            <textarea class="form-control" id="description" name="description" style="min-height: 150px;" placeholder="Detailed description of the property" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="nearby_attractions">Nearby Attractions</label>
+            <textarea class="form-control" id="nearby_attractions" name="nearby_attractions" placeholder="Points of interest, restaurants, shops nearby"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="special_features">What Makes This Property Special?</label>
+            <textarea class="form-control" id="special_features" name="special_features"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="professional_photography">Professional Photography</label>
+            <select class="form-control" id="professional_photography" name="professional_photography" onchange="togglePhotographyFields()">
+              <option value="yes">Yes - Request Professional Photography</option>
+              <option value="no">No - I Will Provide My Own Photos</option>
+            </select>
+          </div>
+
+          <div class="info-box">
+            📊 <strong>Why Professional Photos Matter:</strong> Properties with professional photography see up to 40% more bookings and can command 20-25% higher nightly rates (ADR). High-quality images are the #1 factor guests consider.
+          </div>
+
+          <div class="conditional-field" id="ownPhotosSection">
+            <div class="form-group">
+              <label class="form-label" for="property_photos">Upload Property Photos (Multiple files required) *</label>
+              <input type="file" class="form-control" id="property_photos" name="property_photos[]" multiple accept="image/*">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 13: Platforms & Distribution -->
+      <div class="card" data-section="13">
+        <div class="card__body">
+          <h3 class="section-title">13. Platforms &amp; Distribution</h3>
+          
+          <div class="form-group">
+            <label class="form-label">Platforms to List On</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="platform_airbnb" name="platforms[]" value="airbnb">
+                <label for="platform_airbnb">Airbnb</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="platform_booking" name="platforms[]" value="booking_com">
+                <label for="platform_booking">Booking.com</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="platform_vrbo" name="platforms[]" value="vrbo">
+                <label for="platform_vrbo">Vrbo</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="platform_expedia" name="platforms[]" value="expedia">
+                <label for="platform_expedia">Expedia</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="platform_direct" name="platforms[]" value="direct_website">
+                <label for="platform_direct">Direct Website</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="platform_other" name="platforms[]" value="other_otas">
+                <label for="platform_other">Other OTAs</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="existing_listings">Existing Listings URLs</label>
+            <textarea class="form-control" id="existing_listings" name="existing_listings" placeholder="If you already have listings on any platforms, paste URLs here"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="instant_booking">Enable Instant Booking</label>
+            <select class="form-control" id="instant_booking" name="instant_booking">
+              <option value="yes">Yes</option>
+              <option value="no">No - Require Approval</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 14: Additional Information -->
+      <div class="card" data-section="14">
+        <div class="card__body">
+          <h3 class="section-title">14. Additional Information</h3>
+          
+          <div class="form-group">
+            <label class="form-label" for="known_issues">Known Issues or Quirks</label>
+            <textarea class="form-control" id="known_issues" name="known_issues" placeholder="Any issues guests should be aware of"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="communication_tips">Guest Communication Tips</label>
+            <textarea class="form-control" id="communication_tips" name="communication_tips" placeholder="Best ways to communicate with guests"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="seasonal_considerations">Seasonal Considerations</label>
+            <textarea class="form-control" id="seasonal_considerations" name="seasonal_considerations" placeholder="Things to note about different seasons"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="local_recommendations">Local Recommendations</label>
+            <textarea class="form-control" id="local_recommendations" name="local_recommendations" placeholder="Favourite restaurants, activities, hidden gems"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="other_info">Any Other Information</label>
+            <textarea class="form-control" id="other_info" name="other_info"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="additional_documents">Additional Documents (Multiple files allowed)</label>
+            <input type="file" class="form-control" id="additional_documents" name="additional_documents[]" multiple accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn--primary btn--full-width" id="submitBtn">
+        Submit Property Details
+      </button>
+    </form>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
